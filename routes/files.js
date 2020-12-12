@@ -57,7 +57,12 @@ router.post('/', (req,res) => {
 
 router.post('/send', async (req, res) => {
     //Validate Request
-    const { uuid, emailTo, emailFrom} = req.body;
+/*
+    console.log(req.body);
+    return res.send({});
+  
+  */
+   const { uuid, emailTo, emailFrom} = req.body;
 
     if(!uuid || !emailTo || !emailFrom) {
         return res.status(422).send({ error: 'All fields r required.'});

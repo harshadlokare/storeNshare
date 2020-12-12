@@ -20,7 +20,7 @@ let info = await transporter.sendMail({
     html
 });
 
-
+console.log(info);
 
 }
 
