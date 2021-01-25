@@ -5,6 +5,8 @@ const app = express();
 const cors = require('cors');
 
 require('dotenv').config();
+const HOST = '0.0.0.0';
+
 const PORT = process.env.PORT || 8888;
 app.use(express.static('/public'));
 app.use(express.json());
@@ -28,6 +30,6 @@ app.use('/files/download/', require('./routes/download'));
 //app.use('/files',require('./routes/show'));
 
 
-app.listen(process.env.PORT || 8888, () => {
+app.listen(process.env.PORT || 8888, process.env.HOST, () => {
     console.log('Listening on port => ' + process.env.PORT);
 })
