@@ -28,6 +28,6 @@ app.use('/files/download/', require('./routes/download'));
 //app.use('/files',require('./routes/show'));
 
 
-app.listen(PORT, () => {
-    console.log('Listening on port => '+PORT);
+app.listen(process.env.PORT || 8888, () => {
+    console.log('Listening on port => ' + process.env.PORT);
 })
