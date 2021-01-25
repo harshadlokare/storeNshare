@@ -8,7 +8,8 @@ require('dotenv').config();
 const HOST = '0.0.0.0';
 
 const PORT = process.env.PORT || 8888;
-app.use(express.static('/public'));
+
+app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.json());
 const connectDB = require('./config/db');
 connectDB();
@@ -30,6 +31,8 @@ app.use('/files/download/', require('./routes/download'));
 //app.use('/files',require('./routes/show'));
 
 
-app.listen(process.env.PORT || 8888, process.env.HOST, () => {
+app.listen(process.env.PORT || 8888, process.env.HOST || '0.0.0.0', () => {
     console.log('Listening on port => ' + process.env.PORT);
 })
+
+module.exports = app;
