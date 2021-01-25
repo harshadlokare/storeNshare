@@ -6,7 +6,7 @@ const cors = require('cors');
 
 require('dotenv').config();
 const PORT = process.env.PORT || 8888;
-app.use(express.static('public'));
+app.use(express.static('/public'));
 app.use(express.json());
 const connectDB = require('./config/db');
 connectDB();
