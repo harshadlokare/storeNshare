@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>storeNshare.in</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="script.js" charset="utf-8"></script>
+
+
+<link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+<header class="header-area overlay">
+    <nav class="navbar navbar-expand-md navbar-dark">
+		<div class="container">
+			<a href="#" class="navbar-brand">storeNshare.in</a>
+
+			<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#main-nav">
+				<span class="menu-icon-bar"></span>
+				<span class="menu-icon-bar"></span>
+				<span class="menu-icon-bar"></span>
+			</button>
+
+			<div id="main-nav" class="collapse navbar-collapse">
+				<ul class="navbar-nav ml-auto">
+					<li><a href="#" class="nav-item nav-link active">Home</a></li>
+					<li><a href="about.html" class="nav-item nav-link">About Us</a></li>
+					<li class="dropdown">
+						<a href="#" class="nav-item nav-link" data-toggle="dropdown">Services</a>
+						<div class="dropdown-menu">
+							<a href="#" class="dropdown-item">Dropdown Item 1</a>
+							<a href="#" class="dropdown-item">Dropdown Item 2</a>
+							<a href="#" class="dropdown-item">Dropdown Item 3</a>
+						</div>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="nav-item nav-link" data-toggle="dropdown">Portfolio</a>
+						<div class="dropdown-menu">
+							<a href="#" class="dropdown-item">Dropdown Item 1</a>
+							<a href="#" class="dropdown-item">Dropdown Item 2</a>
+							<a href="#" class="dropdown-item">Dropdown Item 3</a>
+							<a href="#" class="dropdown-item">Dropdown Item 4</a>
+							<a href="#" class="dropdown-item">Dropdown Item 5</a>
+						</div>
+					</li>
+					<li><a href="#" class="nav-item nav-link">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+
+
+<div class="maincont">
+ <!-- <img class="topimage" src="images/topimage.jpeg" alt="topimage"> -->
+  <img class="logo" src="images/logo.png" alt="SNSlogo">
+  <section class="upload-container" >
+    <div class="drop-zone" id="dz" ondragover="dragOver(event)" ondragleave="onLeave(event)" ondrop="Drop(event)">
+      <div class="icon-container">
+        <img src="file.svg" draggable="false" class="center" alt="File Icon">
+        <img src="file.svg" draggable="false" class="left" alt="File Icon">
+        <img src="file.svg" draggable="false" class="right" alt="File Icon">
+      </div>
+   <input type="file" name="inputfile" id="fileInput" onchange="ValidateSize(event)" onClick="showModal(event)" style="display:none" />
+      <div class="title">Drop your Files here or, 
+        <span id="browseBtn" onClick="showModal(event)" onchange="ValidateSize(event)">Browse</span>
+      </div>
+    </div>
+
+  <div id="Progress_Status">
+    <div id="bg-progress"></div>
+  </div>
+
+    <div class="sharing-container">
+      <p class="expire">Link expires in 24 hrs</p>
+      <div class="input-container">
+        <input type="text" id="fileURL" readonly>
+        <img src="./copy-icon.svg" id="copyURLBtn" alt="copy to clipboard icon">
+      </div>
+    
+    
+      <p class="expire">Or Send via Email</p>
+      <div class="email-container">
+        <form id="emailForm">
+          <div class="filed">
+            <label for="fromEmail" class="expire">Your email</label>
+            <input type="email" autocomplete="email" required name="from-email" id="fromEmail">
+          </div>
+    
+          <div class="filed">
+            <label for="toEmail" class="expire">Receiver's email</label>
+            <input type="email" required autocomplete="receiver" name="to-email" id="toEmail">
+          </div>
+          <div class="send-btn-container">
+            <button type="submit" class="expire">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="mainseccont">
+<h1 class="nameone">Handles all of your file needs</h1>
+<h2 class="nametwo">File storage made easy – including powerful features you won’t find anywhere else. Whether you’re sharing photos, videos, audio, or docs, storeNshare can simplify your workflow. </h2>
+
+<div class="maindiv">
+  <div class="shadow1">
+    <div class="firstdiv">
+      <i class="far fa-upload"></i>
+      <h2>Simple upload</h2>
+    </div>
+    <p>Upload your files with few methods and as fast as your connection will allow.</p>
+  </div>
+
+  <div class="shadow2">
+    <div class="secdiv">
+      <i class="far fa-upload"></i>
+      <h2>Huge Storage</h2>
+    </div>
+    <p>With 100GB working space, you can use Upload to backup or share your files.</p>
+  </div>
+
+  <div class="shadow3">
+    <div class="thirddiv">
+      <i class="far fa-gem"></i>
+      <h2>Premium</h2>
+    </div>
+    <p>With our amazing premium features your expectations will go beyond imagination.</p>
+  </div>
+
+</div>
+
+<div class="enddiv">
+  <h1 class="endcentre">What are you waiting for!?</h1>
+  <h3 class="endcentre">Get started now and share to your loved ones.</h3>
+  <a href="register.html"><button class="btn btn-success btn-rounded" id="endbutton" type="button" name="button">Get Started ></button></a>
+</div>
+</section>
+
+
+<h4 class="myname">@Harshad Lokare</h4>
+
+  </body>
+</html>
