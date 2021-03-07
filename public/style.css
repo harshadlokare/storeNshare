@@ -272,7 +272,7 @@ body {
   transform: translate(50%, 0);
 }
 
-@media screen and (max-width: 56.25rem) {
+@media screen and (max-width: 34rem) {
   :root {
     --container-width: 20rem;
   }
