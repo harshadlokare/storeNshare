@@ -1,38 +1,52 @@
-const express = require('express');
-const path = require('path');
-const app = express();
-
-const cors = require('cors');
-
 require('dotenv').config();
-const HOST = '0.0.0.0';
-
-const PORT = process.env.PORT || 8888;
-
-app.use(express.static(path.resolve(__dirname, 'public')));
-app.use(express.json());
-const connectDB = require('./config/db');
-connectDB();
-//cors
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+const path = require('path');
+const cors = require('cors');
+const staticPath = path.join(__dirname, "/public");
+app.use(express.static(staticPath));
+// Cors 
 const corsOptions = {
-    origin: process.env.ALLOWED_CLIENTS.split(',')
+  origin: process.env.ALLOWED_CLIENTS.split(',')
+  // ['http://localhost:3000', 'http://localhost:5000', 'http://localhost:3300']
 }
 
-app.use(cors(corsOptions));
-//Template ENgine
+// Default configuration looks like
+// {
+//     "origin": "*",
+//     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     "preflightContinue": false,
+//     "optionsSuccessStatus": 204
+//   }
+
+app.use(cors(corsOptions))
+app.use(express.static('public'));
+
+const connectDB = require('./config/db');
+connectDB();
+
+app.use(express.json());
+
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
-//Routes
+// Routes 
+//HOME
+app.use(express.static(staticPath));
+app.get('/', (req, res) => {
+  res.status(200).sendFile(__dirname + '/public/' + 'index.html');
+});
 app.use('/api/files', require('./routes/files'));
 app.use('/files', require('./routes/show'));
-app.use('/files/download/', require('./routes/download'));
-
-//app.use('/files',require('./routes/show'));
+app.use('/files/download', require('./routes/download'));
 
 
-app.listen(process.env.PORT || 8888, process.env.HOST || '0.0.0.0', () => {
-    console.log('Listening on port => ' + process.env.PORT);
-})
+app.listen(PORT, console.log(`Listening on port ${PORT}.`));
 
-module.exports = app;
+module.exports ={
+
+  devServer: {
+    historyApiFallback: true
+  }
+};
