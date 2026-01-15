@@ -205,6 +205,18 @@ Response: File download
 - **SendGrid**: Use `smtp.sendgrid.net` with port `587`
 - **Outlook**: Use `smtp-mail.outlook.com` with port `587`
 
+## 🚀 Quick Deploy from GitHub
+
+**Deploy in 5 minutes!** Choose your platform:
+
+- **[Railway](https://railway.app)** ⭐ Recommended - Easiest setup
+- **[Render](https://render.com)** - Free tier available
+- **[Heroku](https://heroku.com)** - Classic platform
+- **[Vercel](https://vercel.com)** - Serverless
+- **[Fly.io](https://fly.io)** - Global edge
+
+**📖 See [DEPLOY_FROM_GITHUB.md](DEPLOY_FROM_GITHUB.md) for detailed deployment guides.**
+
 ## Deployment
 
 ### GitHub Deployment

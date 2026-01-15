@@ -34,10 +34,35 @@ app.use('/api/files', require('./routes/files'));
 app.use('/files', require('./routes/show'));
 app.use('/files/download', require('./routes/download'));
 
+// Health check endpoint for deployment platforms
+app.get('/health', (req, res) => {
+    res.status(200).json({ 
+        status: 'ok', 
+        timestamp: new Date().toISOString(),
+        uptime: process.uptime()
+    });
+});
+
+// 404 handler
+app.use((req, res) => {
+    res.status(404).json({ error: 'Route not found' });
+});
+
+// Error handler middleware
+app.use((err, req, res, next) => {
+    console.error('Error:', err);
+    res.status(err.status || 500).json({ 
+        error: process.env.NODE_ENV === 'production' 
+            ? 'Internal server error' 
+            : err.message 
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
-    console.log(`Visit http://localhost:${PORT} to use the application.`);
+    if (process.env.NODE_ENV !== 'production') {
+        console.log(`Visit http://localhost:${PORT} to use the application.`);
+    }
 });
 
 // Handle unhandled promise rejections
