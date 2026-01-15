@@ -19,11 +19,7 @@ Before you begin, ensure you have the following installed:
 - npm or yarn package manager
 - **MongoDB Database** (FREE cloud database available - see setup below)
 
-> **💡 Don't have MongoDB?** No problem! We'll use **MongoDB Atlas** (free cloud database). See [Quick Start Guide](QUICK_START.md) or [Detailed MongoDB Setup](MONGODB_SETUP.md).
-
-## 🚀 Quick Start
-
-**New to MongoDB?** Follow the [Quick Start Guide](QUICK_START.md) to get running in 5 minutes!
+> **💡 Don't have MongoDB?** No problem! We'll use **MongoDB Atlas** (free cloud database). See [MongoDB Setup Guide](MONGODB_SETUP.md).
 
 ## Installation
 
