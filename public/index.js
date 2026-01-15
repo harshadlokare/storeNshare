@@ -117,6 +117,13 @@ const uploadFile = () => {
 
   xhr.open("POST", uploadURL);
   xhr.send(formData);
+  
+  // Show warning if backend is not available (GitHub Pages)
+  xhr.onerror = function() {
+    const warning = document.getElementById('backendWarning');
+    if (warning) warning.style.display = 'block';
+    showToast("Backend server not available. Please deploy to Railway or Render for full functionality.");
+  };
 };
 
 const onFileUploadSuccess = (res) => {
